@@ -11,4 +11,4 @@ opt.mouse = "a"
 opt.number = true
 opt.termguicolors = true
 opt.cursorline = true
-
+opt.guicursor = block

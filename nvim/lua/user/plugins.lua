@@ -30,9 +30,10 @@ return require('packer').startup(function(use)
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'tiagovla/scope.nvim'
-
+  use 'andweeb/presence.nvim'
 
   use 'projekt0n/github-nvim-theme'
+
 
   if packer_bootstrap then
     require('packer').sync()
