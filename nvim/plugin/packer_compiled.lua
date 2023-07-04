@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["buffer_manager.nvim"] = {
+    loaded = true,
+    path = "/home/rogue/.local/share/nvim/site/pack/packer/start/buffer_manager.nvim",
+    url = "https://github.com/j-morano/buffer_manager.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/rogue/.local/share/nvim/site/pack/packer/start/bufferline.nvim",

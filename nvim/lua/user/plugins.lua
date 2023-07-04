@@ -25,16 +25,26 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use 'j-morano/buffer_manager.nvim'
   use {
     'akinsho/bufferline.nvim', tag = "v3.*", 
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'tiagovla/scope.nvim'
-  use 'andweeb/presence.nvim'
+  use {
+  'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+  use 'lewis6991/gitsigns.nvim'
 
   use 'projekt0n/github-nvim-theme'
-
-
+  use 'folke/tokyonight.nvim'
+  use 'Mofiqul/vscode.nvim'
+  use 'sainnhe/sonokai'
+  use 'rafamadriz/neon'
+  use 'yazeed1s/minimal.nvim'
   if packer_bootstrap then
     require('packer').sync()
   end

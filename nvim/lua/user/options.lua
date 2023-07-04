@@ -12,3 +12,7 @@ opt.number = true
 opt.termguicolors = true
 opt.cursorline = true
 opt.guicursor = block
+
+opt.updatetime = 300
+opt.incsearch = false
+vim.wo.signcolumn = 'yes'
