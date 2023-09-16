@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/impatient.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use 'j-morano/buffer_manager.nvim'
