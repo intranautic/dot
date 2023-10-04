@@ -33,12 +33,14 @@
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
+    virtualenv
+    pyenv
     lambda
     prompt_char             # prompt symbol
   )
 
   function prompt_lambda() {
-    p10k segment -f 207 -i 'λ'
+    p10k segment -f 13 -i 'λ'
   }
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -129,7 +131,7 @@
 
   ################################[ prompt_char: prompt symbol ]################################
   # Green prompt symbol if the last command succeeded.
-  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=207
+  typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=13
   # Red prompt symbol if the last command failed.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=9
   # Default prompt symbol.
