@@ -29,7 +29,7 @@ printf "%s: Running install script\n" "$0"
 echo "Updating and installing dependencies"
 sudo pacman --noconfirm -Syyuu
 sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
-  rofi polybar tmux zsh python python-pip fakeroot 7zip nitrogen yay
+  rofi polybar tmux zsh python python-pip fakeroot nitrogen yay
 yay --noconfirm -S ttf-unifont
 
 mkdir -p $HOME/.config
