@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-
 set_vars() {
   if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -26,13 +25,12 @@ fi
 # set os environ vars determine platform
 set_vars
 
-
 printf "%s: Running install script\n" "$0"
 echo "Updating and installing dependencies"
-#sudo pacman --noconfirm -Syyuu
-#sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
-#  rofi polybar tmux zsh python python-pip fakeroot 7zip nitrogen
-#yay --noconfirm -S ttf-unifont
+sudo pacman --noconfirm -Syyuu
+sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
+  rofi polybar tmux zsh python python-pip fakeroot 7zip nitrogen yay
+yay --noconfirm -S ttf-unifont
 
 mkdir -p $HOME/.config
 
@@ -53,26 +51,32 @@ if [ -e "$HOME/.config/nvim" ]; then
 fi
 cp -r "../nvim" "$HOME/.config"
 
+echo "Removing potential previous configs for tmux, alacritty, polybar, rofi"
+rm -f "$HOME/.tmux.conf"
 rm -rf "$HOME/.config/alacritty"
 rm -rf "$HOME/.config/polybar"
 rm -rf "$HOME/.config/rofi"
 
-rm -rf "$HOME/.config/alacritty"
-rm -rf "$HOME/.config/alacritty"
-
-
 echo "Installing alacritty config"
 cp -r "../alacritty" "$HOME/.config"
-
 echo "Installing polybar config"
-
-
+cp -r "../polybar" "$HOME/.config"
 echo "Installing rofi config"
+cp -r "../rofi" "$HOME/.config"
 echo "Installing tmux config"
-echo "Setup and installing pwngdb config"
-#git clone https://github.com/pwndbg/pwndbg ~/pwndbg
-#git clone https://github.com/scwuaptx/Pwngdb.git ~/Pwngdb
+cp "../tmux.conf" "$HOME/.tmux.conf"
+
+echo "Setup and installing pwndbg config"
+git clone "https://github.com/pwndbg/pwndbg" "~/pwndbg"
+git clone "https://github.com/scwuaptx/Pwngdb.git" "~/Pwngdb"
+sh -c "$HOME/pwndbg/setup.sh" <<< "y" <<< "y"
+cp "../.gdbinit" "$HOME/.gdbinit"
 
 echo "Install and setup betterlockscreen"
-#yay --noconfirm -S betterlockscreen
+yay --noconfirm -S betterlockscreen
+
 echo "Patching i3exit to use betterlockscreen"
+sudo cat "../i3exit" > "$(which i3exit)"
+
+echo "Script finished installing, rebooting in 5 seconds..."
+sleep 5; reboot
