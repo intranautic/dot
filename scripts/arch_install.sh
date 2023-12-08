@@ -73,7 +73,7 @@ sudo pacman --noconfirm -Syyuu
 sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
   rofi polybar tmux zsh python python-pip fakeroot nitrogen yay which patch \
   earlyoom torbrowser-launcher torsocks proxychains-ng nmap hydra john hashcat \
-  clang llvm docker docker-compose docker-buildx htop neofetch
+  clang llvm docker docker-compose docker-buildx htop neofetch github-cli
 
 yay --noconfirm -S ttf-unifont betterlockscreen
 
