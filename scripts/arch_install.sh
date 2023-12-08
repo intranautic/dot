@@ -111,8 +111,8 @@ cp "../.gdbinit" "$HOME/.gdbinit"
 
 dbg_info "Setup and installing radare2"
 cp "../radare2rc" "$HOME/.radare2rc"
-git clone "https://github.com/radareorg/radare2" "$HOME/radare2"
-sh -c "$HOME/radare2/sys/install.sh"
+git clone "https://github.com/radareorg/radare2" "/tmp/radare2"
+sh -c "/tmp/radare2/sys/install.sh"
 dbg_info "Installing r2ghidra decompiler"
 r2pm -ci r2ghidra r2ghidra-sleigh
 
