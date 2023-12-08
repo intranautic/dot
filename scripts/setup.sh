@@ -33,6 +33,7 @@ sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
 yay --noconfirm -S ttf-unifont
 
 mkdir -p $HOME/.config
+mkdir -p $HOME/.config/i3
 
 echo "Installing i3wm configuration"
 if [ -e "$HOME/.config/i3/config" ]; then
