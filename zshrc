@@ -5,17 +5,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 #update path
-export PATH=/home/runner/.local/share/gem/ruby/3.0.0/bin:$PATH
-export PATH=/home/runner/.cargo/bin/minidump-stackwalk:$PATH
-export PATH=/home/runner/depot_tools:$PATH
+export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=$HOME/.cargo/bin/minidump-stackwalk:$PATH
+export PATH=$HOME/depot_tools:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
-export PIN_ROOT='/home/runner/pin'
+export PIN_ROOT=$HOME/pin
 
 export WORKON_HOME=~/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-source /home/runner/.local/bin/virtualenvwrapper.sh 2>/dev/null
+source $HOME/.local/bin/virtualenvwrapper.sh 2>/dev/null
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

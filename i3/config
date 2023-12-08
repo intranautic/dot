@@ -44,6 +44,7 @@ bindsym $mod+Ctrl+s exec shutdown now
 ################################################################################################
 # japanese input
 exec --no-startup-id fcitx -d
+# disable annoying ass fucking bell
 
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
@@ -317,6 +318,8 @@ set_from_resource $term_color15    color15
 
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
+# annoying fucking bell
+exec_always --no-startup-id xset b off
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
