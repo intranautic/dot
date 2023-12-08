@@ -112,7 +112,7 @@ dbg_info "Setup and installing pwndbg config"
 pip install --break-system-packages --user pwn
 git clone "https://github.com/pwndbg/pwndbg" "$HOME/pwndbg"
 git clone "https://github.com/scwuaptx/Pwngdb.git" "$HOME/Pwngdb"
-sh -c "$HOME/pwndbg/setup.sh" <<< "y" <<< "y"
+sh -c "cd $HOME/pwndbg && ./setup.sh" <<< "y" <<< "y"
 cp "../gdbinit" "$HOME/.gdbinit"
 
 dbg_info "Setup and installing radare2"
