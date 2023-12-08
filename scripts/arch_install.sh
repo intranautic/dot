@@ -132,6 +132,6 @@ if [ -e "$HOME/.config/nvim" ]; then
   mv "$HOME/.config/nvim" "$HOME/.config/nvim.old"
 fi
 cp -r "../nvim" "$HOME/.config"
-
+neofetch
 dbg_info "Script finished installing, rebooting in 5 seconds..."
 sleep 5; reboot
