@@ -52,8 +52,9 @@ if [ -e "$HOME/.config/i3/config" ]; then
 fi
 cp "../i3/config" "$HOME/.config/i3/config"
 
-echo "Removing potential previous configs for tmux, alacritty, polybar, rofi"
+echo "Removing potential previous configs for tmux, picom, alacritty, polybar, rofi"
 rm -f "$HOME/.tmux.conf"
+rm -rf "$HOME/.config/picom"
 rm -rf "$HOME/.config/alacritty"
 rm -rf "$HOME/.config/polybar"
 rm -rf "$HOME/.config/rofi"
@@ -64,6 +65,8 @@ sudo cat "../i3exit" > "$(which i3exit)"
 
 echo "Installing alacritty config"
 cp -r "../alacritty" "$HOME/.config"
+echo "Installing picom config"
+cp -r "../picom" "$HOME/.config"
 echo "Installing polybar config"
 cp -r "../polybar" "$HOME/.config"
 echo "Installing rofi config"
@@ -78,6 +81,7 @@ sh -c "$HOME/pwndbg/setup.sh" <<< "y" <<< "y"
 cp "../.gdbinit" "$HOME/.gdbinit"
 
 echo "Setup and installing radare2"
+cp "../radare2rc" "$HOME/.radare2rc"
 git clone https://github.com/radareorg/radare2 ~/radare2
 sh -c "$HOME/radare2/sys/install.sh"
 echo "Installing r2ghidra decompiler"
