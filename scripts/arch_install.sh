@@ -1,5 +1,32 @@
 #!/usr/bin/env sh
 
+# dbgprint(fmt, ...)
+RED="\033[31m"
+BLUE="\033[34m"
+RESET="\033[0m"
+
+dbg_error() {
+  if [ $# -gt 0 ]; then
+    fmt="$1"
+    shift
+    printf "${RED}[ERROR]:${RESET} $fmt\n" "$@"
+  else
+    echo "Error: signature match failed for dbg(fmt, ...)"
+    exit 1
+  fi
+}
+
+dbg_info() {
+  if [ $# -gt 0 ]; then
+    fmt="$1"
+    shift
+    printf "${BLUE}[INFO]:${RESET} $fmt\n" "$@"
+  else
+    echo "Error: signature match failed for dbg(fmt, ...)"
+    exit 1
+  fi
+}
+
 set_vars() {
   if [ -f /etc/os-release ]; then
     . /etc/os-release
@@ -12,32 +39,33 @@ set_vars() {
   elif [ -f /etc/debian_version ]; then
     OS=Debian
   else
-    echo "Could not determine distro or platform."
+    dbg_error "Could not determine distro or platform."
     exit 1
   fi
 }
 
 if [ "$PWD" != "$HOME/dot/scripts" ]; then
-  printf "%s: Error execute script from the "$PWD"/scripts directory\n" "$0"
+  dbg_error "%s: execute from the "$PWD"/scripts directory" "$0"
   exit 1
 fi
 
 # set os environ vars determine platform
 set_vars
 if [[ "$OS" != "Manjaro Linux" ]]; then
-  echo "Error: script only works for arch-based distros, exiting..."
+  dbg_error "script only works for arch-based distros, exiting..."
   exit 1
 fi
 
-echo "$0: Running install, script will periodically prompt with sudo!"
-echo "Terrible fucking code btw, no guarantee that this wont fuck everything :3"
+dbg_info "\n%s\n%s\n"\
+  "$0: Running install, script will periodically prompt with sudo!"\
+  "Terrible fucking code btw, no guarantee that this wont fuck everything :3"
 read -p "Are you sure you want to continue (y/n): " prompt
 if [[ "$prompt" == "n" ]]; then
-  echo "Exiting..."
+  dbg_info "Exiting..."
   exit 0
 fi
 
-echo "Updating and installing dependencies"
+dbg_info "Updating and installing dependencies"
 sudo pacman --noconfirm -Syyuu
 sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
   rofi polybar tmux zsh python python-pip fakeroot nitrogen yay which patch
@@ -46,49 +74,49 @@ yay --noconfirm -S ttf-unifont betterlockscreen
 mkdir -p $HOME/.config
 mkdir -p $HOME/.config/i3
 
-echo "Installing i3wm configuration"
+dbg_info "Installing i3wm configuration"
 if [ -e "$HOME/.config/i3/config" ]; then
   mv "$HOME/.config/i3/config" "$HOME/.config/i3/config.old"
 fi
 cp "../i3/config" "$HOME/.config/i3/config"
 
-echo "Removing potential previous configs for tmux, picom, alacritty, polybar, rofi"
+dbg_info "Removing potential previous configs for tmux, picom, alacritty, polybar, rofi"
 rm -f "$HOME/.tmux.conf"
 rm -rf "$HOME/.config/picom"
 rm -rf "$HOME/.config/alacritty"
 rm -rf "$HOME/.config/polybar"
 rm -rf "$HOME/.config/rofi"
 
-echo "Install and setup betterlockscreen"
-echo "Patching i3exit to use betterlockscreen"
+dbg_info "Install and setup betterlockscreen"
+dbg_info "Patching i3exit to use betterlockscreen"
 sudo cat "../i3exit" > "$(which i3exit)"
 
-echo "Installing alacritty config"
+dbg_info "Installing alacritty config"
 cp -r "../alacritty" "$HOME/.config"
-echo "Installing picom config"
+dbg_info "Installing picom config"
 cp -r "../picom" "$HOME/.config"
-echo "Installing polybar config"
+dbg_info "Installing polybar config"
 cp -r "../polybar" "$HOME/.config"
-echo "Installing rofi config"
+dbg_info "Installing rofi config"
 cp -r "../rofi" "$HOME/.config"
-echo "Installing tmux config"
+dbg_info "Installing tmux config"
 cp "../tmux.conf" "$HOME/.tmux.conf"
 
-echo "Setup and installing pwndbg config"
-pip install --user pwn
+dbg_info "Setup and installing pwndbg config"
+pip install --break-system-packages --user pwn
 git clone "https://github.com/pwndbg/pwndbg" "$HOME/pwndbg"
 git clone "https://github.com/scwuaptx/Pwngdb.git" "$HOME/Pwngdb"
 sh -c "$HOME/pwndbg/setup.sh" <<< "y" <<< "y"
 cp "../.gdbinit" "$HOME/.gdbinit"
 
-echo "Setup and installing radare2"
+dbg_info "Setup and installing radare2"
 cp "../radare2rc" "$HOME/.radare2rc"
 git clone "https://github.com/radareorg/radare2" "$HOME/radare2"
 sh -c "$HOME/radare2/sys/install.sh"
-echo "Installing r2ghidra decompiler"
+dbg_info "Installing r2ghidra decompiler"
 r2pm -ci r2ghidra r2ghidra-sleigh
 
-echo "Build and setup custom neovim config"
+dbg_info "Build and setup custom neovim config"
 if pacman -Qs "neovim" >/dev/null; then
   sudo pacman -R "neovim"
 fi
@@ -99,5 +127,5 @@ if [ -e "$HOME/.config/nvim" ]; then
 fi
 cp -r "../nvim" "$HOME/.config"
 
-echo "Script finished installing, rebooting in 5 seconds..."
+dbg_info "Script finished installing, rebooting in 5 seconds..."
 sleep 5; reboot
