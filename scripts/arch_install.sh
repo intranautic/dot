@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+
+trap exit SIGINT
 
 # dbgprint(fmt, ...)
 RED="\033[31m"
@@ -49,13 +51,6 @@ if [ "$PWD" != "$HOME/dot/scripts" ]; then
   exit 1
 fi
 
-# set os environ vars determine platform
-set_vars
-if [[ "$OS" != "Manjaro Linux" ]]; then
-  dbg_error "script only works for arch-based distros, exiting..."
-  exit 1
-fi
-
 dbg_info "\n%s\n%s\n"\
   "$0: Running install, script will periodically prompt with sudo!"\
   "Terrible fucking code btw, no guarantee that this wont fuck everything :3"
@@ -65,10 +60,21 @@ if [[ "$prompt" == "n" ]]; then
   exit 0
 fi
 
+# set os environ vars determine platform
+set_vars
+if [[ "$OS" != "Manjaro Linux" ]]; then
+  dbg_error "script only works for arch-based distros, exiting..."
+  exit 1
+fi
+
+clear
 dbg_info "Updating and installing dependencies"
 sudo pacman --noconfirm -Syyuu
 sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
-  rofi polybar tmux zsh python python-pip fakeroot nitrogen yay which patch
+  rofi polybar tmux zsh python python-pip fakeroot nitrogen yay which patch \
+  earlyoom torbrowser-launcher torsocks proxychains-ng nmap hydra john hashcat \
+  clang llvm docker docker-compose docker-buildx htop neofetch
+
 yay --noconfirm -S ttf-unifont betterlockscreen
 
 mkdir -p $HOME/.config
@@ -80,7 +86,7 @@ if [ -e "$HOME/.config/i3/config" ]; then
 fi
 cp "../i3/config" "$HOME/.config/i3/config"
 
-dbg_info "Removing potential previous configs for tmux, picom, alacritty, polybar, rofi"
+dbg_info "Removing previous configs for tmux, picom, alacritty, polybar, rofi"
 rm -f "$HOME/.tmux.conf"
 rm -rf "$HOME/.config/picom"
 rm -rf "$HOME/.config/alacritty"
