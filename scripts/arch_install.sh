@@ -24,6 +24,10 @@ fi
 
 # set os environ vars determine platform
 set_vars
+if [[ "$OS" != "Manjaro Linux" ]]; then
+  echo "Error: script only works for arch-based distros, exiting..."
+  exit 1
+fi
 
 echo "$0: Running install, script will periodically prompt with sudo!"
 echo "Terrible fucking code btw, no guarantee that this wont fuck everything :3"
