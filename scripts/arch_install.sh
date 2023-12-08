@@ -40,7 +40,7 @@ fi
 echo "Updating and installing dependencies"
 sudo pacman --noconfirm -Syyuu
 sudo pacman --noconfirm -S alacritty gdb git gcc cmake make pkg-config unzip \
-  rofi polybar tmux zsh python python-pip fakeroot nitrogen yay which
+  rofi polybar tmux zsh python python-pip fakeroot nitrogen yay which patch
 yay --noconfirm -S ttf-unifont betterlockscreen
 
 mkdir -p $HOME/.config
@@ -75,14 +75,15 @@ echo "Installing tmux config"
 cp "../tmux.conf" "$HOME/.tmux.conf"
 
 echo "Setup and installing pwndbg config"
-git clone "https://github.com/pwndbg/pwndbg" "~/pwndbg"
-git clone "https://github.com/scwuaptx/Pwngdb.git" "~/Pwngdb"
+pip install --user pwn
+git clone "https://github.com/pwndbg/pwndbg" "$HOME/pwndbg"
+git clone "https://github.com/scwuaptx/Pwngdb.git" "$HOME/Pwngdb"
 sh -c "$HOME/pwndbg/setup.sh" <<< "y" <<< "y"
 cp "../.gdbinit" "$HOME/.gdbinit"
 
 echo "Setup and installing radare2"
 cp "../radare2rc" "$HOME/.radare2rc"
-git clone https://github.com/radareorg/radare2 ~/radare2
+git clone "https://github.com/radareorg/radare2" "$HOME/radare2"
 sh -c "$HOME/radare2/sys/install.sh"
 echo "Installing r2ghidra decompiler"
 r2pm -ci r2ghidra r2ghidra-sleigh
