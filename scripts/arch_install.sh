@@ -95,7 +95,8 @@ rm -rf "$HOME/.config/rofi"
 
 dbg_info "Install and setup betterlockscreen"
 dbg_info "Patching i3exit to use betterlockscreen"
-sudo cat "../i3exit" > "$(which i3exit)"
+sudo rm -rf "/usr/bin/i3exit"
+sudo cp "../i3exit" "/usr/bin/i3exit"
 
 dbg_info "Installing alacritty config"
 cp -r "../alacritty" "$HOME/.config"
