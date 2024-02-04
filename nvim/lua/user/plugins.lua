@@ -39,12 +39,9 @@ return require('packer').startup(function(use)
   }
   use 'lewis6991/gitsigns.nvim'
 
+  use { "catppuccin/nvim", as = "catppuccin" }
   use 'projekt0n/github-nvim-theme'
-  use 'folke/tokyonight.nvim'
-  use 'Mofiqul/vscode.nvim'
-  use 'sainnhe/sonokai'
-  use 'rafamadriz/neon'
-  use 'yazeed1s/minimal.nvim'
+
   if packer_bootstrap then
     require('packer').sync()
   end

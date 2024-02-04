@@ -318,8 +318,6 @@ set_from_resource $term_color15    color15
 
 # start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
-# annoying fucking bell
-exec_always --no-startup-id xset b off
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
@@ -390,3 +388,4 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+

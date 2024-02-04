@@ -5,16 +5,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#update path
+# so fucking tired of this stupid fucking shit
+xset b off
+
+# update path
+export PATH=$HOME/ida8.3/idapro-8.3:$PATH
+export PATH=$HOME/linux/scripts:$PATH
 export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH=$HOME/.cargo/bin/minidump-stackwalk:$PATH
 export PATH=$HOME/depot_tools:$PATH
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/tools:$PATH
+export PYTHONPATH=$PYTHONPATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/etc
 
-export PIN_ROOT=$HOME/pin
+export PIN_ROOT='/home/runner/pin'
 
-export WORKON_HOME=~/.virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
 source $HOME/.local/bin/virtualenvwrapper.sh 2>/dev/null
 

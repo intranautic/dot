@@ -5,13 +5,14 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.smartindent = false
 opt.smartcase = false
-opt.autoindent = false
+opt.autoindent = true
 opt.ignorecase = true
 opt.mouse = "a"
 opt.number = true
 opt.termguicolors = true
 opt.cursorline = true
-opt.guicursor = block
+opt.guicursor = "i:block"
+opt.linebreak = true
 
 opt.updatetime = 300
 opt.incsearch = false

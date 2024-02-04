@@ -1,4 +1,4 @@
-local opts = { noremap = true, silent = true }
+local opts = { silent = true }
 local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
@@ -18,3 +18,6 @@ keymap("n", "<S-l>", "<C-w>l", opts)
 -- easy keybinds for saving and quitting
 keymap("n", "<S-w>", ":w<CR>", opts)
 keymap("n", "<S-q>", ":q<CR>", opts)
+
+-- gitsigns keybinds
+keymap("n", "<S-b>", ":Gitsigns blame_line<CR>", opts)
