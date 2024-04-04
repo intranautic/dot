@@ -1,5 +1,3 @@
-
-
 [[colors.indexed_colors]]
 color = "0xF8BD96"
 index = 16
@@ -40,7 +38,7 @@ foreground = "0xe6ffff"
 size = 15
 
 [font.normal]
-family = "xos4 terminus"
+family = "unifont"
 
 [window]
-opacity = 0.3
+opacity = 0.6

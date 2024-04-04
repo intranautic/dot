@@ -1,6 +1,8 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+exec_always --no-startup-id "sleep 10 &; xset b off"
+
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -317,10 +319,10 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # start polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
+exec_always --no-startup-id "sleep 3 && ~/.config/polybar/launch.sh --forest"
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+#bindsym $mod+m bar mode toggle
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
