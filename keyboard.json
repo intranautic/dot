@@ -280,10 +280,10 @@
     ],
     "K4B": [
       "UP",
-      "RIGHT_SHIFT"
+      "UP"
     ],
     "K4C": [
-      "FNLOCK",
+      "RIGHT_SHIFT",
       "PGDN"
     ],
     "K50": [
@@ -307,31 +307,31 @@
       "KBD_TOGGLE"
     ],
     "K55": [
-      "RIGHT_ALT",
+      "FNLOCK",
       "RIGHT_ALT"
     ],
     "K56": [
       "RIGHT_CTRL",
-      "APP"
+      "RIGHT_CTRL"
     ],
     "K57": [
       "LEFT",
-      "HOME"
+      "LEFT"
     ],
     "K58": [
       "DOWN",
-      "END"
+      "DOWN"
     ],
     "K59": [
       "RIGHT",
-      "PGDN"
+      "RIGHT"
     ]
   },
   "key_leds": {},
   "layers": [
     {
       "mode": null,
-      "brightness": 192,
+      "brightness": 0,
       "color": [
         0,
         0
