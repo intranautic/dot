@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/oni/.cache/nvim/packer_hererocks/2.1.1693350652/share/lua/5.1/?.lua;/home/oni/.cache/nvim/packer_hererocks/2.1.1693350652/share/lua/5.1/?/init.lua;/home/oni/.cache/nvim/packer_hererocks/2.1.1693350652/lib/luarocks/rocks-5.1/?.lua;/home/oni/.cache/nvim/packer_hererocks/2.1.1693350652/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/oni/.cache/nvim/packer_hererocks/2.1.1693350652/lib/lua/5.1/?.so"
+local package_path_str = "/home/luna/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?.lua;/home/luna/.cache/nvim/packer_hererocks/2.1.1713484068/share/lua/5.1/?/init.lua;/home/luna/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?.lua;/home/luna/.cache/nvim/packer_hererocks/2.1.1713484068/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/luna/.cache/nvim/packer_hererocks/2.1.1713484068/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,88 +76,88 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["buffer_manager.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/buffer_manager.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/buffer_manager.nvim",
     url = "https://github.com/j-morano/buffer_manager.nvim"
   },
   ["bufferline.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["github-nvim-theme"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["godbolt.nvim"] = {
+    loaded = true,
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/godbolt.nvim",
+    url = "https://github.com/p00f/godbolt.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["minimal.nvim"] = {
+  ["nightfox.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/minimal.nvim",
-    url = "https://github.com/yazeed1s/minimal.nvim"
-  },
-  neon = {
-    loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/neon",
-    url = "https://github.com/rafamadriz/neon"
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["scope.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/scope.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/scope.nvim",
     url = "https://github.com/tiagovla/scope.nvim"
   },
-  sonokai = {
+  ["telescope-symbols.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/sonokai",
-    url = "https://github.com/sainnhe/sonokai"
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/telescope-symbols.nvim",
+    url = "https://github.com/nvim-telescope/telescope-symbols.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vgit.nvim"] = {
     loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/vgit.nvim",
+    path = "/home/luna/.local/share/nvim/site/pack/packer/start/vgit.nvim",
     url = "https://github.com/tanvirtin/vgit.nvim"
-  },
-  ["vscode.nvim"] = {
-    loaded = true,
-    path = "/home/oni/.local/share/nvim/site/pack/packer/start/vscode.nvim",
-    url = "https://github.com/Mofiqul/vscode.nvim"
   }
 }
 

@@ -42,3 +42,6 @@ family = "unifont"
 
 [window]
 opacity = 0.6
+
+[env]
+TERM = "xterm-256color"

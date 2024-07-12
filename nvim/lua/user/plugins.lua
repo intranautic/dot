@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
   }
   use 'j-morano/buffer_manager.nvim'
   use {
-    'akinsho/bufferline.nvim', tag = "v3.*", 
+    'akinsho/bufferline.nvim',
     requires = 'nvim-tree/nvim-web-devicons'
   }
   use 'tiagovla/scope.nvim'
@@ -38,9 +38,25 @@ return require('packer').startup(function(use)
     }
   }
   use 'lewis6991/gitsigns.nvim'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+  use 'p00f/godbolt.nvim'
+  use 'nvim-telescope/telescope-symbols.nvim'
+
+--  use 'neovim/nvim-lspconfig'
+--  use 'VonHeikemen/lsp-zero.nvim'
+--  use 'williamboman/mason.nvim'
+--  use 'williamboman/mason-lspconfig.nvim'
+--  use 'hrsh7th/nvim-cmp'
+--  use 'hrsh7th/cmp-nvim-lsp'
+--  use 'L3MON4D3/LuaSnip'
+--  use 'rafamadriz/friendly-snippets'
 
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'projekt0n/github-nvim-theme'
+  use 'EdenEast/nightfox.nvim'
 
   if packer_bootstrap then
     require('packer').sync()

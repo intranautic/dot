@@ -19,5 +19,3 @@ keymap("n", "<S-Right>", "<C-w>l", opts)
 keymap("n", "<S-w>", ":w<CR>", opts)
 keymap("n", "<S-q>", ":q<CR>", opts)
 
--- gitsigns keybinds
-keymap("n", "<S-b>", ":Gitsigns blame_line<CR>", opts)

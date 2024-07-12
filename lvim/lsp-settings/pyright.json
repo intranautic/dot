@@ -1,0 +1,32 @@
+{
+  "python.venvPath": "/home/luna/.virtualenvs/",
+  "python.venv": "angr",
+  "python.analysis.autoSearchPaths": true,
+  "python.analysis.diagnosticMode": "openFilesOnly",
+  "python.analysis.include": ["/home/luna/angr-dev/angr"],
+  "python.analysis.extraPaths": ["/home/luna/.local/lib/python3.12"],
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none",
+    "reportUnusedFunction": "none",
+    "reportUnusedImport": "none",
+    "reportUnusedClass": "none",
+    "reportUnusedVariable": "none",
+    "reportUnusedExpression": "none",
+    "reportWildcardImportFromLibrary": "none",
+    "reportUnusedCallResult": "none",
+    "reportUnusedExcept": "none",
+		"reportDeprecated": "none",
+		"reportCallIssue": "none",
+		"reportIndexIssue": "none",
+		"reportReturnType": "none",
+		"reportArgumentType": "none",
+		"reportImportCycles": "none",
+		"reportUnhashable": "none",
+		"reportOptionalCall": "none",
+		"reportPrivateUsage": "none",
+		"reportUnusedCoroutine": "none",
+		"reportUninitializedInstanceVariable": "none"
+  },
+  "pyright.disableTaggedHints": true
+}
+
