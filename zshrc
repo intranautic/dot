@@ -5,25 +5,30 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# so fucking tired of this stupid fucking shit
-xset b off
+alias nvim=lvim
 
 # update path
-export PATH=$HOME/ida8.3/idapro-8.3:$PATH
+export PATH=$HOME/ida8.3:$PATH
 export PATH=$HOME/linux/scripts:$PATH
 export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
-export PATH=$HOME/.cargo/bin/minidump-stackwalk:$PATH
+
 export PATH=$HOME/depot_tools:$PATH
+
 export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/tools:$PATH
+export PATH=$HOME/pin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/etc
 
-export PIN_ROOT='/home/runner/pin'
+export DEBUGINFOD_URLS="https://debuginfod.ubuntu.com"
+export PIN_ROOT=$HOME/pin
 
 export WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON='/usr/bin/python3'
-source $HOME/.local/bin/virtualenvwrapper.sh 2>/dev/null
+source /usr/bin/virtualenvwrapper.sh 2>/dev/null
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -129,3 +134,12 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+[ -f "/home/luna/.ghcup/env" ] && . "/home/luna/.ghcup/env" # ghcup-env
+# pnpm
+export PNPM_HOME="/home/luna/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
