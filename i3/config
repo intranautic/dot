@@ -13,7 +13,7 @@ bindsym $mod+n border none
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+font xft:Unifont 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -62,7 +62,7 @@ exec --no-startup-id volumeicon
 #bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 #bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# focus_follows_mouse no
+focus_follows_mouse no
 
 # change focus
 bindsym $mod+j focus left
@@ -102,9 +102,10 @@ bindsym $mod+q split toggle
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# i hate this 
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -270,11 +271,11 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id udisksctl mount -b /dev/sda
-exec --no-startup-id xautolock -time 10 -locker "betterlockscreen -l"
-exec --no-startup-id xss-lock -- /usr/bin/i3exit lock
+exec --no-startup-id xautolock -time 10 -locker /usr/bin/i3exit suspend
+exec --no-startup-id xss-lock -- /usr/bin/i3exit suspend
 #exec --no-startup-id xss-lock -- /usr/bin/i3exit lock
 #exec_always --no-startup-id ff-theme-util
-#exec_always --no-startup-id fix_xcursor
+exec_always --no-startup-id fix_xcursor
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -308,7 +309,7 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # start polybar
-exec_always --no-startup-id "sleep .5 && ~/.config/polybar/launch.sh --forest"
+exec_always --no-startup-id "sleep 2 && ~/.config/polybar/launch.sh --forest"
 
 # hide/unhide i3status bar
 #bindsym $mod+m bar mode toggle
@@ -341,7 +342,7 @@ gaps outer -2
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-smart_borders on
+
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
