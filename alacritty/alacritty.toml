@@ -35,15 +35,15 @@ background = "0x1E1D2F"
 foreground = "0xe6ffff"
 
 [font]
-size = 13
+size = 14
 
 [font.normal]
 family = "unifont"
 
 [window]
 opacity = 0.5
-padding.x = 4
-padding.y = 3
+padding.x = 6
+padding.y = 4
 dynamic_padding = true
 
 [env]

@@ -6,11 +6,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 alias nvim=lvim
+export ANTHROPIC_API_KEY=$(cat $HOME/archive/anthropic.txt)
+export IDA_HOME=$HOME/ida8.3/idapro-8.3
 
 # update path
+
+
 export PATH=$HOME/ida8.3:$PATH
 export PATH=$HOME/linux/scripts:$PATH
-export PATH=$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH
+export PATH=$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH
 
 export PATH=$HOME/depot_tools:$PATH
 
@@ -20,7 +24,6 @@ export PATH=$HOME/tools:$PATH
 export PATH=$HOME/pin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/etc
 
-export DEBUGINFOD_URLS="https://debuginfod.ubuntu.com"
 export PIN_ROOT=$HOME/pin
 
 export WORKON_HOME=$HOME/.virtualenvs
@@ -99,7 +102,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git virtualenv)
+plugins=(git virtualenv history)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,3 +146,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+#alias ls=lsd

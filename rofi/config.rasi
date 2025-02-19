@@ -10,7 +10,7 @@ configuration {
 	/*---------- General setting ----------*/
 	modi: "drun,run,filebrowser,window";
 	case-sensitive: false;
-	cycle: true;
+	cycle: false;
 	filter: "";
 	scroll-method: 0;
 	normalize-match: true;
@@ -18,7 +18,7 @@ configuration {
 	icon-theme: "Papirus";
 /*	cache-dir: ;*/
 	steal-focus: false;
-/*	dpi: -1;*/
+  dpi: 144;
 
 	/*---------- Matching setting ----------*/
 	matching: "normal";
@@ -67,7 +67,7 @@ configuration {
 /*	combi-display-format: "{mode} {text}";*/
 
 	/*---------- History and Sorting ----------*/
-	disable-history: false;
+	disable-history: true;
 	sorting-method: "normal";
 	max-history-size: 25;
 
