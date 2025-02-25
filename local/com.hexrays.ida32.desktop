@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=ida32
+Exec=/home/folly/ida8.3/ida
+Icon=/home/folly/ida8.3/idapro-8.3/appico.png
+Terminal=false
+Type=Application
+Categories=Utility;
