@@ -2,8 +2,9 @@
 # /usr/bin/i3exit
 
 # with openrc use loginctl
-[ "$(cat /proc/1/comm)" = "systemd" ] && logind=systemctl || logind=loginctl
+#[ "$(cat /proc/1/comm)" = "systemd" ] && logind=systemctl || logind=loginctl
 
+logind=systemctl
 case "$1" in
     lock)
         betterlockscreen -l
@@ -15,10 +16,10 @@ case "$1" in
         dm-tool switch-to-greeter
         ;;
     suspend)
-	$logind suspend && betterlockscreen -l
+	$logind suspend-then-hibernate
         ;;
     hibernate)
-        $logind hibernate && betterlockscreen -l
+        $logind hibernate
         ;;
     reboot)
         $logind reboot
